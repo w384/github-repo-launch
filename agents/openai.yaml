@@ -1,0 +1,4 @@
+interface:
+  display_name: "GitHub Repo Launch"
+  short_description: "Publish a polished, Star-friendly open-source GitHub repo"
+  default_prompt: "Use $github-repo-launch to turn this project into a polished, Star-friendly open-source GitHub repository and publish it."
