@@ -38,6 +38,9 @@ class CheckRepoReadyTests(unittest.TestCase):
     def test_plain_words_are_not_flagged(self):
         # A key prefix must not match ordinary words such as "task-".
         with tempfile.TemporaryDirectory() as tmp:
+            Path(tmp, "README.md").write_text("# x\n", encoding="utf-8")
+            Path(tmp, "LICENSE").write_text("MIT\n", encoding="utf-8")
+            Path(tmp, ".gitignore").write_text("", encoding="utf-8")
             Path(tmp, "notes.txt").write_text("a task- and risky- word\n", encoding="utf-8")
             proc = run_check(tmp)
             self.assertEqual(proc.returncode, 0, proc.stdout)
